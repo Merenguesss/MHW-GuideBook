@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/weapons/weapons",
+    "pages/home/home",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/itemList/itemList"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#4dc151",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "HUNTER CAMP",
+        "selectedIconPath": "img/home.png",
+        "iconPath": "img/home.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "MAP",
+        "selectedIconPath": "img/map.png",
+        "iconPath": "img/map.png"
+      },
+      {
+        "pagePath": "pages/weapons/weapons",
+        "text": "ARSENAL",
+        "selectedIconPath": "img/weapons.png",
+        "iconPath": "img/weapons.png"
+      }
+    ]
+  }
+}

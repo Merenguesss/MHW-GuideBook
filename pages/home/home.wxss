@@ -1,0 +1,21 @@
+/* pages/home/home.wxss */
+.bg {
+  height: 1200rpx;
+  width: 100%;
+}
+.bg image {
+  width: 100%;
+  height: 100%;
+}
+.title {
+  position: absolute;
+  top: 30rpx;
+  left: 50%;
+  width:688rpx;
+  height: 318rpx;
+  transform: translate(-50%, 0);
+}
+.title image {
+  width: 100%;
+  height: 100%;
+}
