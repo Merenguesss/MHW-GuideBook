@@ -6,21 +6,22 @@ Page({
    */
   data: {
     bg: './img/bg.png',
+    weaponsShow: false,
     icons: [
-      { scr:'./img/img_weapon_01.png'},
-      // { scr: './img/img_weapon_02.png' },
-      // { scr: './img/img_weapon_03.png' },
-      // { scr: './img/img_weapon_04.png' },
-      // { scr: './img/img_weapon_05.png' },
-      // { scr: './img/img_weapon_06.png' },
-      // { scr: './img/img_weapon_07.png' },
-      // { scr: './img/img_weapon_08.png' },
-      // { scr: './img/img_weapon_09.png' },
-      // { scr: './img/img_weapon_10.png' },
-      // { scr: './img/img_weapon_11.png' },
-      // { scr: './img/img_weapon_12.png' },
-      // { scr: './img/img_weapon_13.png' },
-      // { scr: './img/img_weapon_14.png' }
+      { scr: './img/img_weapon_01.png', value: 'GS'},
+      { scr: './img/img_weapon_02.png', value: 'SS'},
+      { scr: './img/img_weapon_03.png', value: 'DB'},
+      { scr: './img/img_weapon_04.png', value: 'LS'},
+      { scr: './img/img_weapon_05.png', value: 'HM'},
+      { scr: './img/img_weapon_06.png', value: 'HH'},
+      { scr: './img/img_weapon_07.png', value: 'LC'},
+      { scr: './img/img_weapon_08.png', value: 'GL'},
+      { scr: './img/img_weapon_09.png', value: 'SA'},
+      { scr: './img/img_weapon_10.png', value: 'CB'},
+      { scr: './img/img_weapon_11.png', value: 'IG'},
+      { scr: './img/img_weapon_12.png', value: 'BW'},
+      { scr: './img/img_weapon_13.png', value: 'LB'},
+      { scr: './img/img_weapon_14.png', value: 'HB'}
     ]
   },
 
@@ -79,15 +80,20 @@ Page({
   onShareAppMessage: function () {
   
   },
+  showWeapon: function() {
+    var that = this;
+    var wdata = !that.data.weaponsShow;
+    this.setData({
+      weaponsShow: wdata
+    });
+  },
   //点击图标跳转至物品列表
-  itemPicked: function () {
-    console.log('111111');
+  itemPicked: function (e) {
     wx.request({
-      url: 'http://localhost:3000/register', //仅为示例，并非真实的接口地址
+      url: 'http://localhost:3000/getWeaponList', //仅为示例，并非真实的接口地址
       method: 'POST',
       data: {
-        username: 'username',
-        password: 'password'
+        group: 'gs',
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -95,6 +101,10 @@ Page({
       success: function (res) {
         console.log(res.data)
       }
+    })
+    var wid = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../weaponList/weaponList?weapon=' + wid
     })
   }
 })

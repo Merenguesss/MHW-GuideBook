@@ -3,14 +3,19 @@
   <view class="bg">
     <image src="{{bg}}"mode="aspectFill"></image>
   </view>
-   <view class="main-part">
-    <view class="title">PICK UP YOUR WEAPON</view>
-    <view class="weapons">
-      <view class="weapon" wx:for="{{icons}}" bindtap='itemPicked'>
-        <view class="weapon-bg">
-          <view class="icon-container"><image src="{{item.scr}}"></image></view>
+  <view class="main-part">
+    <view class="main-title">EQUIP
+      <view class="line"></view>
+    </view>
+    <view class="equip-name" bindtap='showWeapon'>WEAPON</view>
+      <view class="weapons" wx:if="{{weaponsShow}}">
+        <view class="weapon" wx:for="{{icons}}" bindtap='itemPicked' data-id="{{item.value}}">
+          <view class="weapon-bg">
+            <view class="icon-container"><image src="{{item.scr}}"></image></view>
+          </view>
         </view>
       </view>
-    </view>
+    <view class="equip-name">ARMOR</view>
+    <!-- <view class="title">PICK UP YOUR WEAPON</view> -->
   </view> 
 </view>

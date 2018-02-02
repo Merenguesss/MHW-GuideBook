@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/weapons/weapons",
+    "pages/weaponList/weaponList",
     "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",

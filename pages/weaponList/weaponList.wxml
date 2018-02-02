@@ -1,0 +1,13 @@
+<!--pages/weaponList/weaponList.wxml-->
+<view class="group">
+  <view class="group-title" bindtap='showOre'>礦石系列</view>
+  <view wx:for="{{weaponlist}}" wx:if="{{oreShow}}">
+    <view wx:if="{{item.series === 'o'}}" class="weapon">{{item.name}}</view>
+  </view>
+</view>
+<view class="group">
+  <view class="group-title" bindtap='showBone'>骨系列</view>
+  <view wx:for="{{weaponlist}}" wx:if="{{boneShow}}">
+    <view wx:if="{{item.series === 'b'}}" class="weapon">{{item.name}}</view>
+  </view>
+</view>
