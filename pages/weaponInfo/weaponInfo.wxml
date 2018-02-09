@@ -1,0 +1,2 @@
+<!--pages/weaponinfo/weaponinfo.wxml-->
+<view>{{weapon.name}}</view>

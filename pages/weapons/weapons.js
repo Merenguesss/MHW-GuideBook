@@ -89,22 +89,9 @@ Page({
   },
   //点击图标跳转至物品列表
   itemPicked: function (e) {
-    wx.request({
-      url: 'http://localhost:3000/getWeaponList', //仅为示例，并非真实的接口地址
-      method: 'POST',
-      data: {
-        group: 'gs',
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        console.log(res.data)
-      }
-    })
-    var wid = e.currentTarget.dataset.id;
+    var gid = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '../weaponList/weaponList?weapon=' + wid
+      url: '../weaponList/weaponList?wg=' + gid
     })
   }
 })

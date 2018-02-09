@@ -5,7 +5,8 @@
     "pages/home/home",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/itemList/itemList"
+    "pages/itemList/itemList",
+    "pages/weaponInfo/weaponInfo"
   ],
   "window": {
     "backgroundTextStyle": "light",

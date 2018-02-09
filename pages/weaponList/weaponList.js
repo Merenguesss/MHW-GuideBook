@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    weapon: '',
+    wg: '',
     weaponlist: [],
     oreShow: false,
     boneShow: false
@@ -16,7 +16,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      weapon : options.weapon
+      wg : options.wg
     });
   },
 
@@ -25,20 +25,26 @@ Page({
    */
   onReady: function () {
     var that = this;
-    var weapon = that.data.weapon;
-    console.log(weapon);
+    var wg = that.data.wg;
     wx.request({
-      url: 'http://localhost:3000/getWeaponList', //仅为示例，并非真实的接口地址
+      url: 'https://www.merenguesss.cn/getWeaponList', //仅为示例，并非真实的接口地址
       method: 'POST',
       data: {
-        group: weapon.toLowerCase()
+        group: wg.toLowerCase()
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
+        var weaponlist = res.data;
+        for (var i = 0; i < weaponlist.length; i++){
+          weaponlist[i].subArr = [];
+          for (var j = weaponlist[i].subset; j >= 1; j--){
+            weaponlist[i].subArr.push(j);
+          }
+        }
         that.setData({
-          weaponlist: res.data
+          weaponlist: weaponlist
         });
       }
     })
@@ -98,5 +104,28 @@ Page({
     this.setData({
       oreShow: ore
     });
+  },
+  showSubset: function(e) {
+    var that = this;
+    var weaponlist = that.data.weaponlist;
+    weaponlist.map(function(item,index){
+      if (item.id === e.currentTarget.dataset.id) {
+        if (item.show === true){
+          item.show = false;
+        }
+        else {
+          item.show = true;
+        }
+      }
+    });
+    that.setData({
+      weaponlist: weaponlist
+    });
+  },
+  showDetail: function(e) {
+    var wid = e.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../weaponInfo/weaponInfo?wid=' + wid
+    })
   }
 })

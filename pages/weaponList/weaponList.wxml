@@ -2,12 +2,23 @@
 <view class="group">
   <view class="group-title" bindtap='showOre'>礦石系列</view>
   <view wx:for="{{weaponlist}}" wx:if="{{oreShow}}">
-    <view wx:if="{{item.series === 'o'}}" class="weapon">{{item.name}}</view>
+    <view wx:if="{{item.series === 'o'}}">
+      <view class="weapon" bindtap="showSubset" data-id="{{item.id}}">{{item.name}}</view>
+      <view class="subset" wx:if="{{item.show}}">
+        <view wx:for="{{item.subArr}}" wx:for-item="j"
+        class="subitem" bindtap='showDetail' data-id="{{item.id + j}}">{{j}}</view>
+      </view>
+    </view>
   </view>
 </view>
 <view class="group">
   <view class="group-title" bindtap='showBone'>骨系列</view>
   <view wx:for="{{weaponlist}}" wx:if="{{boneShow}}">
-    <view wx:if="{{item.series === 'b'}}" class="weapon">{{item.name}}</view>
+    <view wx:if="{{item.series === 'b'}}">
+      <view class="weapon" bindtap="showSubset" data-id="{{item.id}}">{{item.name}}</view>
+      <view class="subset" wx:if="{{item.show}}">
+        <view wx:for="{{item.subArr}}" wx:for-item="j" class="subitem">{{j}}</view>
+      </view>
+    </view>
   </view>
 </view>
