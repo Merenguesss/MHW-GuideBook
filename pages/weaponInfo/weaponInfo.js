@@ -6,7 +6,11 @@ Page({
    */
   data: {
     wid: '',
-    weapon: []
+    weapon: [],
+    weaponImg: '',
+    sharpness: [],
+    source: '',
+    material: []
   },
 
   /**
@@ -15,9 +19,10 @@ Page({
   onLoad: function (options) {
     var that = this;
     this.setData({
-      wid: options.wid
+      wid: options.wid,
+      weaponImg: './img/' + options.wid.substr(0, 6) + '.png'
     });
-    console.log(that.data.wid);
+    console.log(that.data.wid.substr(0,6));
   },
 
   /**
@@ -37,10 +42,18 @@ Page({
       },
       success: function (res) {
         var weapon = res.data;
-        that.setData({
-          weapon: weapon[0]
+        var sharpness = weapon[0].sharpness.split(",");
+        var sharpness = sharpness.map(function(item, index){
+          return Number(item) * 100 + '%';
         });
-        console.log(that.data.weapon);
+        var material = weapon[0].material.split(",");
+        that.setData({
+          weapon: weapon[0],
+          sharpness: sharpness,
+          source: weapon[0].source ? weapon[0].source : '无',
+          material: material
+        });
+        console.log(that.data.material);
       }
     })
   },

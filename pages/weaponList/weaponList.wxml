@@ -17,7 +17,8 @@
     <view wx:if="{{item.series === 'b'}}">
       <view class="weapon" bindtap="showSubset" data-id="{{item.id}}">{{item.name}}</view>
       <view class="subset" wx:if="{{item.show}}">
-        <view wx:for="{{item.subArr}}" wx:for-item="j" class="subitem">{{j}}</view>
+        <view wx:for="{{item.subArr}}" wx:for-item="j" 
+        class="subitem" bindtap='showDetail' data-id="{{item.id + j}}">{{j}}</view>
       </view>
     </view>
   </view>

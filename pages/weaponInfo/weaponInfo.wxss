@@ -1,1 +1,115 @@
 /* pages/weaponinfo/weaponinfo.wxss */
+page {
+  background: #150b0a;
+}
+.weapon-name {
+  font-family: PingFang SC;
+  color: white;
+  font-size: 60rpx;
+  padding-top: 30rpx;
+  padding-left: 30rpx;
+}
+.line {
+  content: '';
+  width: 500rpx;
+  height: 1px;
+  background-image: linear-gradient(to right bottom, white, white);
+}
+.weapon-img-container {
+  width: 500rpx;
+  height: 500rpx;
+  margin: 20rpx auto 0;
+}
+.weapon-img {
+  width: 100%;
+  height: 100%;
+}
+.weapon-info {
+  color: white;
+  margin: 30rpx;
+}
+.icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+.first-line {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #00C851;
+  padding-bottom: 10rpx;
+}
+.attackpower {
+  margin: 20rpx 40rpx;
+}
+.attackpower image {
+  margin-right: 30rpx;
+}
+.sharpness-part {
+  margin: 20rpx 40rpx;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.sharpness-part image {
+  margin-right: 30rpx;
+}
+.sharpness {
+  content: '';
+  width: 480rpx;
+  height: 30rpx;
+  background: rgba(255,255,255, 0.3);
+  border-radius: 10px;
+}
+.sharpness-bar {
+  height: 30rpx;
+  float: left;
+}
+.sharpness view:nth-child(1) {
+  background:#C00;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.sharpness view:nth-child(2) {
+  background:#F80;
+}
+.sharpness view:nth-child(3) {
+  background:#fb3;
+}
+.sharpness view:nth-child(4) {
+  background:#00C851;
+}
+.sharpness view:nth-child(5) {
+  background:#0d47a1;
+}
+.sharpness view:nth-child(6) {
+  background:#FFF;
+}
+.second-line {
+  margin: 20rpx 40rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+.affinity {
+  margin-right: 300rpx;
+}
+.third-line {
+  margin: 20rpx 40rpx;
+  display: flex;
+  justify-content: flex-start;
+}
+.defense {
+  margin-right: 300rpx;
+}
+.material {
+  border-top: 1px solid #00C851;
+  padding-top: 20rpx;
+}
+.element {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 20rpx;
+}
+.materials {
+  padding-top: 20rpx;
+  padding-right: 20rpx;
+}

@@ -1,2 +1,57 @@
 <!--pages/weaponinfo/weaponinfo.wxml-->
-<view>{{weapon.name}}</view>
+<view>
+  <view class="weapon-name">
+    {{weapon.name}}
+    <view class="line"></view>
+  </view>
+  <view class="weapon-img-container">
+    <image class="weapon-img" src="{{weaponImg}}"></image>
+  </view>
+  <view class="weapon-info">
+    <view class="first-line">
+      <view class="source">源 {{source}}</view>
+      <view class="rare">稀有度 {{weapon.rare}}</view>
+    </view>
+    <view class="attackpower">
+      <image class="icon attack-img" src="./img/attack.png"></image>
+      {{weapon.attackpower}}
+    </view>
+    <view class="sharpness-part">
+      <image class="icon sharpness-img" src="./img/sharpness.png"></image>
+      <view class="sharpness">
+        <view class="sharpness-bar" style="width:{{sharpness[0]}}"></view>
+        <view class="sharpness-bar" style="width:{{sharpness[1]}}"></view>
+        <view class="sharpness-bar" style="width:{{sharpness[2]}}"></view>
+        <view class="sharpness-bar" style="width:{{sharpness[3]}}"></view>
+        <view class="sharpness-bar" style="width:{{sharpness[4]}}"></view>
+        <view class="sharpness-bar" style="width:{{sharpness[5]}}"></view>
+      </view>
+    </view>
+    <view class="second-line">
+      <view class="affinity">
+        <image class="icon affinity-img" src="./img/affinity.png"></image>
+        {{weapon.affinity}}
+      </view>
+      <view class="elementdamage">
+        <image class="icon elementdamage-img" src="./img/elementdamage.png"></image>
+        {{weapon.elementdamage ? weapon.elementdamage : 'None'}}
+      </view>
+    </view>
+    <view class="third-line">
+      <view class="defense">
+        <image class="icon defense-img" src="./img/defense.png"></image>
+        {{weapon.defense ? weapon.defense : '-'}}
+      </view>
+      <view class="decoration">
+        <image class="icon decoration-img" src="./img/decoration.png"></image>
+        {{weapon.decoration ? weapon.decoration : '-'}}
+      </view>
+    </view>
+    <view class="material">
+      <view class="material-title">所需素材</view>
+      <view class="element">
+        <view class="materials" wx:for="{{material}}">{{item}}</view>
+      </view>
+    </view>
+  </view>
+</view>
